@@ -10,3 +10,14 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+puts "What is the store name?"
+@storeName = gets.chomp
+
+newStore = Store.create(name: @storeName)
+
+# Create error messages
+if newStore.errors.messages
+  newStore.errors.messages.each do |error_key, message|
+    puts "Error: #{error_key} #{message.first}"
+  end
+end
